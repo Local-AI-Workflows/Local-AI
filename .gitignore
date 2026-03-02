@@ -63,6 +63,6 @@ dist/
 Thumbs.db
 
 # Temporary files
-tmpclaude-*.cwd
+tmpclaude-*
 *.tmp
 *.swp

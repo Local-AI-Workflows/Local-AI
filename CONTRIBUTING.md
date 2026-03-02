@@ -42,7 +42,6 @@ cp mcp-services/.env.example mcp-services/.env
 ### Project Structure
 
 - `mcp-services/` - MCP service implementations
-- `LLM Workflows Teamprojekt/` - Presentation and documentation
 - `docs/` - Additional documentation
 - Root `.py` files - Benchmarking and evaluation scripts
 
@@ -189,13 +188,6 @@ Before merging significant changes:
 3. Document expected results
 4. Add to evaluation suite
 
-### Updating Presentation
-
-1. Edit `LLM Workflows Teamprojekt/slides.md`
-2. Add components to `LLM Workflows Teamprojekt/components/` if needed
-3. Test presentation: `npm run dev`
-4. Rebuild if needed: `npm run build`
-
 ## 📊 Documentation Standards
 
 ### README Files
@@ -262,7 +254,7 @@ Before submitting code for review:
 
 Team members new to relevant technologies:
 - MCP: Start with [mcp-services/README.md](mcp-services/README.md)
-- LLMs: Review `LLM Workflows Teamprojekt/kontext.md`
+- LLMs: Review the project documentation and `docs/` folder
 - Benchmarking: Study `mcp_benchmark_llm.py` comments
 
 ## 👥 Team Contacts

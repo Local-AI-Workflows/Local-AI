@@ -25,12 +25,6 @@ Local-AI/
 │   ├── manage.sh                    # Service management script
 │   └── .env.example                 # Environment configuration template
 │
-├── LLM Workflows Teamprojekt/       # Slidev-based presentation project
-│   ├── slides.md                    # Main presentation content
-│   ├── kontext.md                   # Comprehensive project context
-│   ├── components/                  # Vue components for slides
-│   └── package.json                 # Node dependencies
-│
 ├── docs/                            # Documentation
 │   ├── services/                    # Service documentation
 │   └── infrastructure/              # Infrastructure guides
@@ -105,19 +99,9 @@ Supports evaluation with:
 
 ### Presentation
 
-Interactive Slidev-based presentation covering:
-- Project objectives and background
-- MCP integration approach
-- Benchmarking methodology
-- Infrastructure overview
-- Current implementations and results
+The project presentation is maintained in a **separate repository**. It covers project objectives, MCP integration approach, benchmarking methodology, and current results.
 
-Run the presentation:
-```bash
-cd "LLM Workflows Teamprojekt"
-npm install  # or pnpm install
-npm run dev
-```
+> See the dedicated presentation repository for the Slidev-based slides.
 
 ## 🛠️ Technology Stack
 
@@ -132,10 +116,6 @@ npm run dev
 - Ollama for local LLM inference
 - OpenWebUI for LLM interface
 - MCPO for MCP-to-OpenAPI proxies
-
-**Frontend/Presentation:**
-- Slidev (Vue 3-based presentation framework)
-- pnpm package manager
 
 ## 👥 Team
 
@@ -189,7 +169,6 @@ This project is part of an academic initiative at HTWG Konstanz. See LICENSE fil
 - [Anthropic MCP SDK](https://github.com/anthropics/protocols)
 - [Ollama](https://ollama.ai/)
 - [OpenWebUI](https://openwebui.com/)
-- [Slidev](https://sli.dev/)
 
 ## 📞 Support & Contact
 
