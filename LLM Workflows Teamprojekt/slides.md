@@ -656,7 +656,10 @@ layout: center
 </v-click>
 
 </div>
-TODO: Mehr zu n8n passiert? Evtl. warum aktuell nichts damit passiert?
+
+:::info Note
+n8n Integration is currently in the planning phase and not yet implemented in this version. It is identified as a future enhancement for workflow automation with LLM capabilities.
+:::
 
 ---
 layout: default

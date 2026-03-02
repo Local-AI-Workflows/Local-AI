@@ -1,47 +1,200 @@
-# LLM-Projekt-Dokumentation
+# LLM Workflows - Local AI Infrastructure & MCP Services
 
-Dieses Repository dient zur Dokumentation und Automatisierung unserer LLM-Infrastruktur auf dem Linux-Server.
+A comprehensive project for exploring Model Context Protocol (MCP) integration with Large Language Models, featuring benchmarking frameworks, MCP service implementations, and LLM evaluation tools.
 
-## Struktur
+**Project Type:** Academic Team Project - HTWG Konstanz (2 Semesters: WS 2024/25 + SS 2025)
 
-Wir verwenden eine Kombination aus Markdown-Dateien und Ansible-Playbooks, um unsere Infrastruktur zu dokumentieren und zu automatisieren:
+## 🎯 Project Overview
+
+This project combines multiple research areas:
+
+- **MCP Integration**: Practical implementations of Anthropic's Model Context Protocol for LLM tool-use
+- **LLM Benchmarking**: Comprehensive evaluation framework for multi-model LLM performance
+- **MCP Services**: Custom tools including weather, time/timezone, and campus mensa information
+- **Local LLM Infrastructure**: Docker-based setup for Ollama and OpenWebUI
+
+## 📁 Repository Structure
 
 ```
-/docs              # Allgemeine Dokumentation in Markdown
-  /services        # Dokumentation für einzelne Dienste
-  /infrastructure  # Dokumentation für Infrastrukturkomponenten
-/ansible           # Infrastructure-as-Code
-  /inventory       # Server-Inventar
-  /playbooks       # Ansible-Playbooks
-  /roles           # Wiederverwendbare Ansible-Rollen
-/docker            # Docker-Compose-Dateien und verwandte Konfigurationen
-  /service-name    # Ordner für jeden Docker-Service
-README.md          # Übersicht über das Projekt
+Local-AI/
+├── mcp-services/                    # MCP service implementations
+│   ├── weather-service/             # Weather tool using OpenWeather API
+│   ├── time-service/                # Timezone-aware time information service
+│   ├── mensa-service/               # Campus mensa information service
+│   ├── docker-compose.yml           # Service orchestration with MCPO proxies
+│   ├── manage.sh                    # Service management script
+│   └── .env.example                 # Environment configuration template
+│
+├── LLM Workflows Teamprojekt/       # Slidev-based presentation project
+│   ├── slides.md                    # Main presentation content
+│   ├── kontext.md                   # Comprehensive project context
+│   ├── components/                  # Vue components for slides
+│   └── package.json                 # Node dependencies
+│
+├── docs/                            # Documentation
+│   ├── services/                    # Service documentation
+│   └── infrastructure/              # Infrastructure guides
+│
+├── mcp_benchmark_llm.py             # Advanced LLM benchmarking framework
+├── mcp_advanced_demo.py             # Multi-model evaluation demo
+├── mcp_evaluator_wrapper.py         # LLM-based evaluation wrapper
+├── requirements.txt                 # Python dependencies
+└── run_local.sh                     # Local execution script
 ```
 
-## Philosophie
+## 🚀 Quick Start
 
-Unser Dokumentationsansatz folgt dem Prinzip der "lebendigen Dokumentation":
+### Prerequisites
 
-1. **Markdown-Dateien** dienen als menschenlesbare Dokumentation:
-   - Enthalten Erklärungen, Kontext und das "Warum" hinter Entscheidungen
-   - Bieten Anweisungen zur Nutzung und Konfiguration
-   - Dokumentieren Probleme und Lösungen
+- Python 3.8+
+- Docker & Docker Compose
+- API Key: OpenWeather API (for weather service)
 
-  *OPTIONAL: Wäre interessant für reproduzierbare Ergebnisse, aber nicht zwingend notwendig*
-2. **Ansible-Playbooks** dienen als ausführbare Dokumentation:
-   - Automatisieren die Installation und Konfiguration
-   - Gewährleisten Konsistenz zwischen Umgebungen
-   - Ermöglichen schnelles Onboarding neuer Teammitglieder
+### Installation
 
-3. **Docker-Compose-Dateien** für containerisierte Dienste:
-   - Definieren die genaue Konfiguration jedes Dienstes
-   - Werden durch Ansible-Playbooks bereitgestellt und verwaltet
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Local-AI
+   ```
 
-## Komponenten
+2. **Set up Python environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-Aktuell dokumentieren und automatisieren wir folgende Komponenten:
+3. **Configure environment**
+   ```bash
+   cp mcp-services/.env.example mcp-services/.env
+   # Edit .env with your API keys and settings
+   ```
 
-- **Ollama**: LLM-Engine für lokale Ausführung von Modellen
-- **Docker**: Container-Infrastruktur
-- **OpenWebUI**: Weboberfläche für die Interaktion mit Ollama
+4. **Start MCP services**
+   ```bash
+   cd mcp-services
+   docker-compose up -d
+   ```
+
+## 📚 Project Components
+
+### MCP Services
+
+Custom Model Context Protocol implementations:
+
+- **Weather Service**: Real-time weather data using OpenWeather API
+- **Time Service**: Timezone-aware time and date information
+- **Mensa Service**: Campus mensa menu and information
+
+See [mcp-services/README.md](mcp-services/README.md) for detailed setup and usage.
+
+### Benchmarking Framework
+
+Comprehensive LLM evaluation:
+
+- `mcp_benchmark_llm.py`: Core benchmarking framework supporting multiple LLM models
+- `mcp_advanced_demo.py`: Demonstration of multi-model evaluation capabilities
+- `mcp_evaluator_wrapper.py`: LLM-powered evaluation of model outputs
+
+Supports evaluation with:
+- OpenAI models (GPT-4, etc.)
+- Anthropic Claude
+- Local models via Ollama
+- LiteLLM for unified API access
+
+### Presentation
+
+Interactive Slidev-based presentation covering:
+- Project objectives and background
+- MCP integration approach
+- Benchmarking methodology
+- Infrastructure overview
+- Current implementations and results
+
+Run the presentation:
+```bash
+cd "LLM Workflows Teamprojekt"
+npm install  # or pnpm install
+npm run dev
+```
+
+## 🛠️ Technology Stack
+
+**Backend:**
+- Python 3.x with LiteLLM for LLM abstraction
+- Anthropic MCP SDK
+- FastAPI for REST APIs
+- Pydantic for data validation
+
+**Infrastructure:**
+- Docker & Docker Compose
+- Ollama for local LLM inference
+- OpenWebUI for LLM interface
+- MCPO for MCP-to-OpenAPI proxies
+
+**Frontend/Presentation:**
+- Slidev (Vue 3-based presentation framework)
+- pnpm package manager
+
+## 👥 Team
+
+This is a collaborative academic project overseen by:
+- Prof. Matthias Franz
+- Prof. Oliver Dürr
+
+## 📋 Environment Configuration
+
+Create `.env` in `mcp-services/` directory:
+
+```env
+# Weather Service
+OPENWEATHER_API_KEY=your_api_key_here
+
+# Time Service
+LOCAL_TIMEZONE=Europe/Berlin
+
+# Logging
+LOG_LEVEL=INFO
+
+# Service Configuration
+PORT=8000
+CORS_ORIGINS=*
+```
+
+See [mcp-services/.env.example](mcp-services/.env.example) for complete configuration options.
+
+## 🧪 Running Benchmarks
+
+```bash
+python mcp_benchmark_llm.py
+```
+
+This will run the comprehensive benchmarking suite. See [SETUP.md](SETUP.md) for detailed configuration options.
+
+## 📖 Documentation
+
+- [SETUP.md](SETUP.md) - Infrastructure and deployment guide
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Team guidelines and contribution workflow
+- [mcp-services/README.md](mcp-services/README.md) - MCP services documentation
+- [docs/](docs/) - Additional documentation
+
+## 📝 License
+
+This project is part of an academic initiative at HTWG Konstanz. See LICENSE file for details.
+
+## 🔗 Useful Links
+
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [Anthropic MCP SDK](https://github.com/anthropics/protocols)
+- [Ollama](https://ollama.ai/)
+- [OpenWebUI](https://openwebui.com/)
+- [Slidev](https://sli.dev/)
+
+## 📞 Support & Contact
+
+For questions or issues, please refer to the project documentation or contact the team through the HTWG Konstanz project management system.
+
+---
+
+**Status:** Active Development | **Last Updated:** 2025-03-02
